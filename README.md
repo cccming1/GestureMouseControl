@@ -1,100 +1,74 @@
 # Gesture Mouse Control
 
-A computer-vision–based gesture mouse control system built with Python and MediaPipe.
+Gesture Mouse Control is a computer-vision-based mouse control system built with Python, MediaPipe, and Tkinter.  
+It allows users to control the mouse cursor, click, drag, and scroll using natural hand gestures captured by a webcam, with a graphical user interface for real-time parameter tuning.
 
-This project allows users to control the mouse cursor, perform clicks, drag actions,
-and scroll using natural hand gestures captured by a camera.  
-A clean graphical UI is provided for real-time parameter tuning.
+This project focuses on stability, usability, and touchpad-like interaction rather than experimental gesture switching.
 
+---
 
 ## Features
 
-- Real-time hand tracking using **MediaPipe**
-- **Thumb-based cursor tracking** for improved stability
-- **Pinch gesture** for click and drag
-- **Two-finger gesture** for scrolling
-- Intuitive **graphical UI** for parameter adjustment
-- Adjustable sensitivity, smoothing, and timing parameters
+- Real-time hand tracking using MediaPipe
+- Cursor tracking based on thumb tip for reduced jitter
+- Pinch gesture for click and drag
+- Two-finger gesture for scrolling (similar to macOS touchpad)
+- Graphical UI for live parameter adjustment
+- Start / Stop control to safely release camera and mouse
+- Designed for experimentation and human–computer interaction learning
 
-
-## Gesture Controls
-
-- **Move Cursor**  
-  Move your **thumb tip** to control cursor position
-
-- **Click**  
-  Short pinch gesture (thumb + index finger)
-
-- **Drag**  
-  Long pinch gesture and move
-
-- **Scroll**  
-  Extend index + middle fingers and move vertically
-
+---
 
 ## Requirements
 
-- Python **3.10** (recommended)
-- Webcam or built-in camera
+- Python 3.10
+- Webcam
+- macOS / Windows / Linux (tested mainly on macOS)
 
-### Python Dependencies
+All required Python packages are listed in `requirements.txt`.
 
-The required Python libraries are:
+---
 
-- `opencv-python`
-- `mediapipe`
-- `pyautogui`
-- `numpy`
+## Installation and Setup
 
-All dependencies are listed in `requirements.txt`.
-
-
-## Installation
-
-### 1. Clone the repository
+Clone the repository, create a virtual environment, install dependencies, and run the program as follows:
 
 ```bash
-git clone https://github.com/your-username/gesture-mouse-control.git
-cd gesture-mouse-control
-
-2. (Recommended) Create a virtual environment
-
+git clone https://github.com/cccming1/GestureMouseControl.git
+cd GestureMouseControl
 python3.10 -m venv .venv
-source .venv/bin/activate
-
-3. Install dependencies
-
+source .venv/bin/activate    # macOS / Linux
 pip install -r requirements.txt
+python ui.py 
+```
 
+After launching the UI:
+	•	Adjust parameters such as cursor smoothness and click sensitivity
+	•	Click Start to activate gesture-based mouse control
+	•	Click Stop at any time to immediately release the camera and mouse
 
-Run the Program:
+On first run, the system may request camera and accessibility permissions.
 
-Start the graphical control panel:
+---
 
-python ui.py
+## Project Structure
 
-Then click Start in the UI to activate gesture-based mouse control.
-Click Stop at any time to release the camera and mouse.
+GestureMouseControl/
+├── gesture_engine.py          # Core gesture recognition logic
+├── gesture_mouse_control.py   # Mouse action implementation
+├── ui.py                      # Graphical user interface
+├── requirements.txt           # Python dependencies
+├── README.md                  # Project documentation
 
+---
 
-Project Structure:
+## Notes
+	•	The virtual environment directory (.venv) is intentionally excluded from version control.
+	•	Gesture parameters can be tuned live via the UI without restarting the program.
+	•	This project is intended for educational use, experimentation, and prototyping gesture-based interfaces.
 
-.
-├── gesture_engine.py        # Core gesture recognition and logic
-├── gesture_mouse_control.py # Mouse control implementation
-├── ui.py                    # Graphical user interface
-├── requirements.txt         # Python dependencies
-└── README.md
+---
 
+## License
 
-
-
-Notes:
-This project is intended for educational and experimental use
-On macOS, camera and accessibility permissions may be required
-Windows and Linux are supported when running from source
-
-
-License:
-This project is released for learning, experimentation, and personal use.
-
+This project is provided for educational and experimental purposes.
